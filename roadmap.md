@@ -1,5 +1,5 @@
 # Portfolio roadmap
 - [x] Establish accurate content and green/mint design.
-- [ ] Build one-page portfolio and practice sample views.
-- [ ] Verify phone and desktop navigation, samples, contact links, and page metadata.
-- [ ] Prepare for public publishing; do not deploy without an explicit request.
+- [x] Build one-page portfolio and practice sample views.
+- [x] Verify phone and desktop navigation, samples, contact links, and page metadata.
+- [x] Prepare for public publishing; not deployed, as requested.
