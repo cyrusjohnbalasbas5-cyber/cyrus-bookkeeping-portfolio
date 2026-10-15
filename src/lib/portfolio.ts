@@ -3,8 +3,19 @@ export const profiles = {
   onlineJobs: 'https://v2.onlinejobs.ph/jobseekers/info/1366684',
   linkedIn: 'https://www.linkedin.com/in/cyrus-john-balasbas-0611b5430/',
 };
-export const projects = [
-  { title: 'QuickBooks transactions', category: 'QuickBooks Online', description: 'A practice approach to recording and categorizing everyday transactions.', image: 'laptop', steps: ['Review a fictional transaction and identify its date, amount, and supporting document.', 'Choose the appropriate account and transaction type in QuickBooks Online.', 'Check the entry for accuracy and review its effect on the relevant accounts.'], focus: 'Transaction entry & categorization' },
+export type Project = {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  steps: string[];
+  focus: string;
+  // Screen captures from a personal QuickBooks practice company, keyed to src/assets.
+  // Left empty until Cyrus uploads his own captures; never fill with generated mock screens.
+  screenshots?: string[];
+};
+export const projects: Project[] = [
+  { title: 'QuickBooks transactions', category: 'QuickBooks Online', description: 'A practice approach to recording and categorizing everyday transactions.', image: 'laptop', steps: ['Review a fictional transaction and identify its date, amount, and supporting document.', 'Choose the appropriate account and transaction type in QuickBooks Online.', 'Check the entry for accuracy and review its effect on the relevant accounts.'], focus: 'Transaction entry & categorization', screenshots: [] },
   { title: 'Bank reconciliation', category: 'Reconciliation', description: 'A practice walkthrough for matching bank activity with accounting records.', image: 'bank', steps: ['Compare a fictional bank statement with the cash ledger for the same period.', 'Match deposits and payments, then identify outstanding items and bank charges.', 'Review differences and confirm the adjusted balances agree before completing reconciliation.'], focus: 'Matching records & reviewing differences' },
   { title: 'Accounts receivable workflow', category: 'Accounts receivable', description: 'A sample process for tracking payments and following up on overdue accounts.', image: 'desk', steps: ['Organize fictional invoices by customer, due date, payment status, and outstanding balance.', 'Review due and overdue items and prepare a courteous payment follow-up.', 'Record a sample payment, update the outstanding balance, and check the account history.'], focus: 'Account monitoring & payment updates' },
   { title: 'Financial-report review', category: 'Financial reporting', description: 'A practice checklist for reviewing reports for consistency and completeness.', image: 'reports', steps: ['Confirm the reporting period and review a fictional income statement and balance sheet.', 'Compare key account balances with their supporting records and note inconsistencies.', 'Document questions and items requiring clarification without drawing unsupported conclusions.'], focus: 'Report consistency & supporting records' },
