@@ -114,7 +114,8 @@
 .portfolio-header .section-intro { margin-bottom: 0; }
 .practice-note { display: flex; align-items: center; gap: 6px; color: var(--primary); font-size: 10px; padding-bottom: 7px; }
 .practice-note svg { width: 14px; }
-.project-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.project-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.project-card { flex: 0 1 calc((100% - 60px) / 4); min-width: 220px; }
 .project-card { border: 1px solid var(--border); border-radius: 6px; background: var(--background); overflow: hidden; transition: transform .25s, box-shadow .25s; }
 .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
 .project-image { width: 100%; aspect-ratio: 1.34; object-fit: cover; }
@@ -141,7 +142,7 @@
 .sample-step { display: flex; gap: 12px; font-size: 13px; line-height: 1.7; color: var(--muted-foreground); }
 .sample-step::before { counter-increment: step; content: counter(step); flex-shrink: 0; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 4px; background: var(--secondary); color: var(--primary); font-size: 11px; font-weight: 700; }
 @media (min-width: 1450px) { .hero { min-height: 660px; } }
-@media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .project-grid { grid-template-columns: repeat(2,1fr); } .skills-layout { gap: 35px; } }
+@media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .skills-layout { gap: 35px; } .project-card { flex-basis: calc((100% - 20px) / 2); } }
 @media (max-width: 767px) {
   .page-width { width: calc(100% - 40px); }
   .site-header { height: 74px; }
@@ -179,6 +180,7 @@
   .tool { font-size: 10px; padding: 8px 10px; }
   .portfolio-header { grid-template-columns: 1fr; gap: 12px; }
   .project-grid { gap: 16px; }
+  .project-card { flex: 1 1 100%; }
   .project-body { padding: 15px 12px 10px; }
   .project-card h3 { font-size: 13px; }
   .project-card p { font-size: 10px; }
@@ -188,5 +190,5 @@
   .contact-links { gap: 20px; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 9px; padding-block: 22px; }
 }
-@media (max-width: 360px) { .hero h1 { font-size: 33px; } .project-grid { grid-template-columns: 1fr; } }
+@media (max-width: 360px) { .hero h1 { font-size: 33px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } }
