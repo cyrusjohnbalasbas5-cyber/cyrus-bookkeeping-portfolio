@@ -114,8 +114,8 @@
 .portfolio-header .section-intro { margin-bottom: 0; }
 .practice-note { display: flex; align-items: center; gap: 6px; color: var(--primary); font-size: 10px; padding-bottom: 7px; }
 .practice-note svg { width: 14px; }
-.project-grid { display: flex; flex-wrap: wrap; gap: 20px; }
-.project-card { flex: 1 1 240px; min-width: 220px; }
+.project-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.project-card { flex: 0 1 calc((100% - 60px) / 4); min-width: 220px; }
 .project-card { border: 1px solid var(--border); border-radius: 6px; background: var(--background); overflow: hidden; transition: transform .25s, box-shadow .25s; }
 .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
 .project-image { width: 100%; aspect-ratio: 1.34; object-fit: cover; }
@@ -142,7 +142,7 @@
 .sample-step { display: flex; gap: 12px; font-size: 13px; line-height: 1.7; color: var(--muted-foreground); }
 .sample-step::before { counter-increment: step; content: counter(step); flex-shrink: 0; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 4px; background: var(--secondary); color: var(--primary); font-size: 11px; font-weight: 700; }
 @media (min-width: 1450px) { .hero { min-height: 660px; } }
-@media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .skills-layout { gap: 35px; } }
+@media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .skills-layout { gap: 35px; } .project-card { flex-basis: calc((100% - 20px) / 2); } }
 @media (max-width: 767px) {
   .page-width { width: calc(100% - 40px); }
   .site-header { height: 74px; }
