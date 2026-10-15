@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, BookOpen, Building2, Calculator, CheckCheck, FileSpreadsheet, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, ShieldCheck, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import bankStatement from '@/assets/bank-statement.jpg';
 import desk from '@/assets/bookkeeping-desk.jpg';
 import incomeExpenses from '@/assets/income-expenses.jpg';
 import inventoryStock from '@/assets/inventory-stock.jpg';
@@ -23,7 +24,7 @@ export const Route = createFileRoute('/')({
   component: Index,
 });
 const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills', 'skills'], ['Portfolio', 'portfolio']];
-const images: Record<string, string> = { desk, reports, laptop, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses };
+const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses };
 const skills = [
   { icon: BookOpen, title: 'Transaction recording', copy: 'Organized recording of day-to-day cash and non-cash transactions.' },
   { icon: Landmark, title: 'Bank reconciliation', copy: 'Matching bank deposits and income against accounting records.' },
