@@ -180,6 +180,7 @@
   .tool { font-size: 10px; padding: 8px 10px; }
   .portfolio-header { grid-template-columns: 1fr; gap: 12px; }
   .project-grid { gap: 16px; }
+  .project-card { flex: 1 1 100%; }
   .project-body { padding: 15px 12px 10px; }
   .project-card h3 { font-size: 13px; }
   .project-card p { font-size: 10px; }
