@@ -25,6 +25,8 @@ export const Route = createFileRoute('/')({
 });
 const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills', 'skills'], ['Portfolio', 'portfolio']];
 const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses };
+// QuickBooks screen captures supplied by Cyrus, keyed by the names listed in src/lib/portfolio.ts.
+const sampleScreenshots: Record<string, string> = {};
 const skills = [
   { icon: BookOpen, title: 'Transaction recording', copy: 'Organized recording of day-to-day cash and non-cash transactions.' },
   { icon: Landmark, title: 'Bank reconciliation', copy: 'Matching bank deposits and income against accounting records.' },
