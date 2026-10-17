@@ -12,3 +12,4 @@
 - Keep this portfolio as one index route with in-page section anchors; the requested experience is a single-page personal site.
 - Store practice project descriptions in a browser-safe data module and present walkthroughs in accessible dialogs; no client data or completed client outcomes are implied.
 - Define portfolio presentation tokens and styles in the global stylesheet and use the shared Button for interactive controls; this keeps all sections visually consistent.
+- Keep uploaded practice-media pointers in a browser-safe registry and render them through the shared gallery with full-size image and PDF links; documents remain readable without relying on embedded PDF support.
