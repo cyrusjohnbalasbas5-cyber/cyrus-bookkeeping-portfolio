@@ -10,6 +10,9 @@ import inventoryStock from '@/assets/inventory-stock.jpg';
 import laptop from '@/assets/spreadsheet-work.jpg';
 import reports from '@/assets/financial-reports.jpg';
 import salesReceipts from '@/assets/sales-receipts.jpg';
+import purchaseOrder from '@/assets/purchase-order.jpg';
+import fixedAssets from '@/assets/fixed-assets.jpg';
+import chartOfAccounts from '@/assets/chart-of-accounts.jpg';
 import { email, profiles, projects } from '@/lib/portfolio';
 
 export const Route = createFileRoute('/')({
@@ -24,7 +27,7 @@ export const Route = createFileRoute('/')({
   component: Index,
 });
 const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills', 'skills'], ['Portfolio', 'portfolio']];
-const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses };
+const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses, purchase: purchaseOrder, assets: fixedAssets, accounts: chartOfAccounts };
 // QuickBooks screen captures supplied by Cyrus, keyed by the names listed in src/lib/portfolio.ts.
 const sampleScreenshots: Record<string, string> = {};
 const skills = [
