@@ -144,6 +144,8 @@
 .sample-shots { display: grid; gap: 16px; margin-block: 20px; }
 .sample-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 5px; background: var(--background); }
 .sample-shot figcaption { margin-top: 7px; font-size: 10px; line-height: 1.7; color: var(--muted-foreground); }
+.sample-shot { margin: 0; padding-block: 18px; border-top: 1px solid var(--border); min-width: 0; }
+.sample-dialog { width: min(960px, calc(100% - 32px)); max-width: 960px; }
 @media (min-width: 1450px) { .hero { min-height: 660px; } }
 @media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .skills-layout { gap: 35px; } .project-card { flex-basis: calc((100% - 20px) / 2); } }
 @media (max-width: 767px) {
