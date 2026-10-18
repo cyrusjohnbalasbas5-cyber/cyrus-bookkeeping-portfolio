@@ -137,3 +137,50 @@ function Index() {
                 Explore interactive bookkeeping samples, utility bills, and QuickBooks workflow screenshots.
               </p>
             </div>
+            <div className="practice-note"><ShieldCheck /> Every sample uses my own practice records. These are practice samples, not real client projects.</div>
+            <div className="project-grid">
+              {projects.map((item, index) => (
+                <article className="project-card" key={item.title}>
+                  <div className="project-image"><img src={images[item.image]} alt={`Illustrative photo for ${item.title}`} loading="lazy" /><span className="project-label">Practice sample</span></div>
+                  <div className="project-body">
+                    <div className="eyebrow">{item.category}</div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <Button variant="outline" onClick={() => setSelected(index)}>View practice sample <ArrowRight /></Button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="contact">
+          <img className="contact-photo" src={laptop} alt="" loading="lazy" />
+          <div className="page-width contact-content">
+            <div className="eyebrow">Contact</div>
+            <h2 className="section-heading">Let’s work together.</h2>
+            <p className="section-copy">Reach out by email or connect with me on my professional profiles.</p>
+            <div className="contact-links">
+              <Button variant="contact" size="lg" asChild><a href={`mailto:${email}`}><Mail /> {email}</a></Button>
+              <Button variant="contact" size="lg" asChild><a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn</a></Button>
+              <Button variant="contact" size="lg" asChild><a href={profiles.onlineJobs} target="_blank" rel="noopener noreferrer"><Monitor /> OnlineJobs.ph</a></Button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Dialog open={project !== null} onOpenChange={open => !open && setSelected(null)}>
+        <DialogContent className="sample-dialog max-h-[90vh] overflow-y-auto">
+          {project && <>
+            <DialogHeader>
+              <DialogTitle>{project.title}</DialogTitle>
+              <DialogDescription>Practice sample · {project.focus}</DialogDescription>
+            </DialogHeader>
+            <ol className="sample-steps">{project.steps.map((step, i) => <li className="sample-step" key={i}><CheckCheck /> {step}</li>)}</ol>
+            {project.screenshots && project.screenshots.length > 0 && <PracticeGallery entries={project.screenshots} />}
+          </>}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
