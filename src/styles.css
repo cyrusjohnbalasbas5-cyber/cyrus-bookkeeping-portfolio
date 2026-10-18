@@ -138,14 +138,9 @@
 .footer-name { font-weight: 700; color: var(--primary); font-size: 11px; }
 .mobile-toggle { display: none; }
 .mobile-nav { display: none; }
-.sample-steps { counter-reset: step; display: grid; gap: 14px; margin-block: 20px; }
-.sample-step { display: flex; gap: 12px; font-size: 13px; line-height: 1.7; color: var(--muted-foreground); }
-.sample-step::before { counter-increment: step; content: counter(step); flex-shrink: 0; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 4px; background: var(--secondary); color: var(--primary); font-size: 11px; font-weight: 700; }
-.sample-shots { display: grid; gap: 16px; margin-block: 20px; }
-.sample-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 5px; background: var(--background); }
-.sample-shot figcaption { margin-top: 7px; font-size: 10px; line-height: 1.7; color: var(--muted-foreground); }
-.sample-shot { margin: 0; padding-block: 18px; border-top: 1px solid var(--border); min-width: 0; }
-.sample-dialog { width: min(960px, calc(100% - 32px)); max-width: 960px; }
+.practice-placeholder { margin-block-start: 40px; padding: 48px 24px; text-align: center; border: 1px dashed var(--border); border-radius: 12px; background: var(--secondary); }
+.practice-placeholder { margin-block-start: 40px; padding: 48px 24px; text-align: center; border: 1px dashed var(--border); border-radius: 12px; background: var(--secondary); }
+.practice-placeholder p { font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
 @media (min-width: 1450px) { .hero { min-height: 660px; } }
 @media (max-width: 1000px) { .desktop-nav { gap: 18px; } .about-grid { gap: 40px; } .skills-layout { gap: 35px; } .project-card { flex-basis: calc((100% - 20px) / 2); } }
 @media (max-width: 767px) {
