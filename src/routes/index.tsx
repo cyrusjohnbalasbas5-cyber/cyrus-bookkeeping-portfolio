@@ -1,11 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, Building2, Calculator, CheckCheck, FileSpreadsheet, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, ShieldCheck, Users, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import desk from '@/assets/bookkeeping-desk.jpg';
 import reports from '@/assets/financial-reports.jpg';
-import { email, profiles, projects } from '@/lib/portfolio';
+import { email, profiles } from '@/lib/portfolio';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -30,8 +29,6 @@ const skills = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selected, setSelected] = useState<number | null>(null);
-  const project = selected === null ? null : projects[selected];
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
@@ -111,21 +108,14 @@ function Index() {
           </div>
         </section>
 
-        {/* MALINIS NA PORTFOLIO SECTION (WALANG ATTACHMENTS AT GALLERY) */}
         <section id="portfolio" className="section mint-section">
           <div className="page-width">
             <div className="section-intro">
               <div className="eyebrow">Portfolio Practice</div>
               <h2 className="section-heading">Bookkeeping Practice Samples</h2>
-              <p className="section-copy">
-                Samples of financial tracking, structured invoicing documentation, and bookkeeping workflows are currently being organized.
-              </p>
             </div>
-            
-            <div className="mt-12 text-center p-8 border border-dashed rounded-xl bg-background/50">
-              <p className="text-sm text-muted-foreground font-medium">
-                Practice samples will be posted here soon.
-              </p>
+            <div className="practice-placeholder">
+              <p>Practice samples and documents are being prepared. Check back soon!</p>
             </div>
           </div>
         </section>
@@ -143,12 +133,6 @@ function Index() {
           </div>
         </section>
       </main>
-
-      <Dialog open={project !== null} onOpenChange={open => !open && setSelected(null)}>
-        <DialogContent className="sample-dialog">
-          {project && <DialogHeader><DialogTitle>{project.title}</DialogTitle><DialogDescription>Practice sample · {project.focus}</DialogDescription></DialogHeader>}
-        </DialogContent>
-      </Dialog>
     </>
   );
 }
