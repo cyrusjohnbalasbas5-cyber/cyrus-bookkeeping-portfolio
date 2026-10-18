@@ -138,9 +138,7 @@
 .footer-name { font-weight: 700; color: var(--primary); font-size: 11px; }
 .mobile-toggle { display: none; }
 .mobile-nav { display: none; }
-.sample-steps { counter-reset: step; display: grid; gap: 14px; margin-block: 20px; }
-.sample-step { display: flex; gap: 12px; font-size: 13px; line-height: 1.7; color: var(--muted-foreground); }
-.sample-step::before { counter-increment: step; content: counter(step); flex-shrink: 0; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 4px; background: var(--secondary); color: var(--primary); font-size: 11px; font-weight: 700; }
+.practice-placeholder { margin-block-start: 40px; padding: 48px 24px; text-align: center; border: 1px dashed var(--border); border-radius: 12px; background: var(--secondary); }
 .practice-placeholder { margin-block-start: 40px; padding: 48px 24px; text-align: center; border: 1px dashed var(--border); border-radius: 12px; background: var(--secondary); }
 .practice-placeholder p { font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
 @media (min-width: 1450px) { .hero { min-height: 660px; } }
