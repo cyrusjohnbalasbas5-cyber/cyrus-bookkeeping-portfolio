@@ -29,6 +29,10 @@ export const Route = createFileRoute('/')({
 });
 const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills', 'skills'], ['Portfolio', 'portfolio']];
 const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses, purchase: purchaseOrder, assets: fixedAssets, accounts: chartOfAccounts };
+const sampleScreenshots: Record<string, string> = {
+  bill101: '/portfolio/bills/Bill 101.png',
+  bill102: '/portfolio/bills/bills 102.png',
+};
 const skills = [
   { icon: BookOpen, title: 'Transaction recording', copy: 'Organized recording of day-to-day cash and non-cash transactions.' },
   { icon: Landmark, title: 'Bank reconciliation', copy: 'Matching bank deposits and income against accounting records.' },
@@ -62,6 +66,35 @@ function Index() {
         <section id="portfolio" className="section mint-section"><div className="page-width"><div className="portfolio-header"><div className="section-intro"><div className="eyebrow">Portfolio projects</div><h2 className="section-heading">Learning put into practice.</h2><p className="section-copy">Illustrative practice walkthroughs of common bookkeeping tasks.<br />These are not real client projects or client results.</p></div><div className="practice-note"><ShieldCheck />Practice samples only</div></div><div className="project-grid">{projects.map((item,i) => <article className="project-card" key={item.title}><img className="project-image" src={images[item.image]} alt={`Illustrative accounting workspace for ${item.title} practice`} width={1280} height={896} loading="lazy" /><div className="project-body"><span className="project-label">Practice sample</span><h3>{item.title}</h3><p>{item.description}</p><Button variant="link" className="h-8 px-0 text-[10px]" onClick={() => setSelected(i)} aria-label={`View ${item.title} practice sample`}>View practice sample <ArrowUpRight /></Button></div></article>)}</div></div></section>
         <section id="contact" className="contact"><img className="contact-photo" src={desk} alt="" width={1536} height={1024} loading="lazy" /><div className="page-width contact-content"><div className="eyebrow">Let’s connect</div><h2>Good bookkeeping starts<br />with a conversation.</h2><p>Have a bookkeeping opportunity in mind?<br />I’d be glad to connect and discuss how my experience could fit your needs.</p><Button variant="contact" size="lg" asChild><a href={`mailto:${email}`}><Mail />Send me an email <ArrowUpRight /></a></Button><div className="contact-links"><a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"><Linkedin />LinkedIn <ArrowUpRight /></a><a href={profiles.onlineJobs} target="_blank" rel="noopener noreferrer"><Building2 />OnlineJobs.ph <ArrowUpRight /></a></div><div className="mt-6 text-[10px] text-accent break-all"><a href={`mailto:${email}`}>{email}</a></div></div></section>
       </main>
+      
+{project.title === 'QuickBooks Bills' && (
+  <div className="space-y-2 border-t pt-4">
+    <p className="text-sm font-medium">Supporting PDF documents</p>
+    <ul className="list-inside list-disc space-y-1 text-sm">
+      <li>
+        <a
+          href="/portfolio/bills/Bill.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline"
+        >
+          Open Bill PDF
+        </a>
+      </li>
+      <li>
+        <a
+          href="/portfolio/bills/Bill%20(1).pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline"
+        >
+          Open Bill (1).pdf
+        </a>
+      </li>
+    </ul>
+  </div>
+)}
+
       <footer><div className="page-width footer-inner"><span className="footer-name">Cyrus John Balasbas</span><span>© {new Date().getFullYear()} Cyrus John Balasbas. All rights reserved.</span><a href="#home" className="nav-link text-[10px]">Back to top ↑</a></div></footer>
       <Dialog open={project !== null} onOpenChange={(open) => { if (!open) setSelected(null); }}><DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">{project && <><DialogHeader><span className="project-label w-fit">Practice sample · {project.category}</span><DialogTitle className="text-2xl">{project.title}</DialogTitle><DialogDescription>{project.description} This illustrative walkthrough uses fictional records, not client data or a claim of completed client work.</DialogDescription></DialogHeader><div className="sample-steps">{project.steps.map(step => <div className="sample-step" key={step}>{step}</div>)}</div>{project.screenshots?.length ? <div className="sample-shots">{project.screenshots.map(key => { const src = sampleScreenshots[key]; return src ? <figure className="sample-shot" key={key}><img src={src} alt={`Practice screen capture for ${project.title}`} loading="lazy" /><figcaption>Captured in a personal QuickBooks practice company using fictional records — not client data.</figcaption></figure> : null; })}</div> : null}<div className="flex items-center gap-2 border-t pt-4 text-xs text-primary"><CheckCheck className="size-4 shrink-0" />Focus: {project.focus}</div>{project.category === 'QuickBooks Online' && <p className="text-xs text-muted-foreground">My QuickBooks Online skills are developing through practice; I do not claim expert-level proficiency.</p>}</>}</DialogContent></Dialog>
     </>
