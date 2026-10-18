@@ -25,4 +25,18 @@ export const projects: Project[] = [
   { title: 'Purchase orders & item receipts', category: 'Purchasing', description: 'A practice walkthrough for ordering stock and recording what actually arrives.', image: 'purchase', steps: ['Create a fictional purchase order with the supplier, items, quantities, and agreed prices.', 'Record an item receipt against the order when the fictional delivery arrives.', 'Compare the received quantities and amounts with the order and note any differences.'], focus: 'Ordering & receiving stock' },
   { title: 'Fixed assets setup', category: 'Fixed assets', description: 'A practice walkthrough for registering equipment and tracking it over time.', image: 'assets', steps: ['List fictional assets with their description, cost, purchase date, and location.', 'Register each asset in a sample asset list and assign it to the right account.', 'Review the register for completeness and note how depreciation would be tracked.'], focus: 'Asset registration & tracking' },
   { title: 'Chart of accounts & journal entries', category: 'QuickBooks Online', description: 'A practice walkthrough for organizing accounts and recording manual adjustments.', image: 'accounts', steps: ['Review a fictional chart of accounts and check that each account has the right type.', 'Add a sample account and confirm where it appears in the financial reports.', 'Record a fictional journal entry with balanced debits and credits and a clear memo.'], focus: 'Account setup & adjustments' },
+    focus: 'Account setup & adjustments' },
+  {
+    title: 'QuickBooks Bills',
+    category: 'QuickBooks Online',
+    description: 'Practice samples of supplier bills recorded in QuickBooks Online, with supporting bill screenshots and PDF documents.',
+    image: 'purchase',
+    steps: [
+      'Review supplier bill details and dates.',
+      'Check bill amounts and supporting documents.',
+      'Review the uploaded screenshots and PDF samples.',
+    ],
+    focus: 'Bills entry & supporting documents',
+    screenshots: ['bill101', 'bill102'],
+  },
 ];
