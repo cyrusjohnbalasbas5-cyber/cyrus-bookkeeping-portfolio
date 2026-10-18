@@ -14,4 +14,6 @@ export const practiceMedia: Record<string, { title: string; src: string; pdf?: s
   invoice1020: { title: 'Invoice 1020 · Service sale', src: invoice1020.url, pdf: invoice1020Pdf.url },
   receipt1016: { title: 'Sales receipt 1016 · Cash service sale', src: receipt1016.url, pdf: receipt1016Pdf.url },
   receipt1017: { title: 'Sales receipt 1017 · Cash product sale', src: receipt1017.url, pdf: receipt1017Pdf.url },
+  bill101: { title: 'Bill 101 · Supplier bill', src: '/portfolio/bills/Bill%20101.png' },
+  bill102: { title: 'Bill 102 · Supplier bill', src: '/portfolio/bills/bills%20102.png' },
 };
