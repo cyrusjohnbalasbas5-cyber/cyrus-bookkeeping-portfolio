@@ -27,8 +27,23 @@ const skills = [
   { icon: FileText, title: 'Reporting & record review', copy: 'Preparing requested reports and checking supporting records.' },
 ];
 
+const portfolioTabs = [
+  'Product and Service Creation',
+  'Sales',
+  'Invoices',
+  'Bills',
+  'Expense',
+  'Journal Entries',
+  'Furniture & Equipment Set Up',
+  'Bank Transaction Feeds',
+  'Bank Reconciliation',
+  'Financial Reports',
+  'Purchase and Receive Orders from Supplier',
+];
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
@@ -114,7 +129,22 @@ function Index() {
               <div className="eyebrow">Portfolio Practice</div>
               <h2 className="section-heading">Bookkeeping Practice Samples</h2>
             </div>
-            <div className="practice-placeholder">
+            <div className="practice-tabs" role="tablist" aria-label="Practice sample categories">
+              {portfolioTabs.map((tab, index) => (
+                <button
+                  key={tab}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === index}
+                  className={`practice-tab${activeTab === index ? ' is-active' : ''}`}
+                  onClick={() => setActiveTab(index)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+            <div className="practice-placeholder" role="tabpanel">
+              <p className="practice-tab-title">{portfolioTabs[activeTab]}</p>
               <p>Practice samples and documents are being prepared. Check back soon!</p>
             </div>
           </div>
