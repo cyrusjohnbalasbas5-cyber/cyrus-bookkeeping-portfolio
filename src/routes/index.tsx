@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, FileSpreadsheet, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, Users, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, FileSpreadsheet, FileText, GraduationCap, Landmark, Mail, MapPin, Menu, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import desk from '@/assets/bookkeeping-desk.jpg';
 import reports from '@/assets/financial-reports.jpg';
-import { email, profiles } from '@/lib/portfolio';
+import { email } from '@/lib/portfolio';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -43,7 +43,7 @@ const portfolioTabs = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(3); // Default sa Bills tab para makita mo agad ang gawa natin
+  const [activeTab, setActiveTab] = useState(3); // Naka-set default sa Bills tab para makita mo agad
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
