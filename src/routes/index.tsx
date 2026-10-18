@@ -5,6 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import desk from '@/assets/bookkeeping-desk.jpg';
 import reports from '@/assets/financial-reports.jpg';
+import bankStatement from '@/assets/bank-statement.jpg';
+import incomeExpenses from '@/assets/income-expenses.jpg';
+import inventoryStock from '@/assets/inventory-stock.jpg';
+import laptop from '@/assets/spreadsheet-work.jpg';
+import salesReceipts from '@/assets/sales-receipts.jpg';
+import purchaseOrder from '@/assets/purchase-order.jpg';
+import fixedAssets from '@/assets/fixed-assets.jpg';
+import chartOfAccounts from '@/assets/chart-of-accounts.jpg';
 import { email, profiles, projects } from '@/lib/portfolio';
 import { PracticeGallery } from '@/components/practice-gallery';
 
@@ -24,6 +32,7 @@ const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills',
 
 // ANG MGA NASA PUBLIC FOLDER NA LAMANG ANG LALABAS DITO SA GALLERY
 const images: Record<string, string> = { 
+  desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses, purchase: purchaseOrder, assets: fixedAssets, accounts: chartOfAccounts,
   bill101: '/portfolio/bills/Bill%20101.png',
   bill102: '/portfolio/bills/bills%20102.png',
   salesTransactions: '/portfolio/bills/sales%20transactions.png'
