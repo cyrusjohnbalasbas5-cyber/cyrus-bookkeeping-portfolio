@@ -2,9 +2,6 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, BookOpen, FileSpreadsheet, FileText, GraduationCap, Landmark, Mail, MapPin, Menu, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import desk from '@/assets/bookkeeping-desk.jpg';
-import reports from '@/assets/financial-reports.jpg';
-import { email } from '@/lib/portfolio';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -43,7 +40,7 @@ const portfolioTabs = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(3); // Naka-set default sa Bills tab para makita mo agad
+  const [activeTab, setActiveTab] = useState(3); // Default sa Bills tab para makita mo agad ang gawa natin
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
@@ -57,11 +54,30 @@ function Index() {
       </header>
       <main id="main">
         <section id="home" className="hero">
-          <img className="hero-photo" src={desk} alt="Illustrative bookkeeping workspace with a laptop, calculator, and financial documents" width={1536} height={1024} fetchPriority="high" />
-          <div className="page-width hero-content"><div className="eyebrow">A thoughtful approach to bookkeeping</div><h1>Cyrus John Balasbas<span>.<br />Care in every number.</span></h1><p className="hero-description">An accounting professional with hands-on experience in transaction recording, reconciliation, and accounts receivable. Bringing clarity and care to everyday financial records.</p><div className="hero-actions"><Button variant="portfolio" size="lg" asChild><a href="#portfolio">Explore my portfolio <ArrowUpRight /></a></Button><Button variant="outline" size="lg" asChild><a href="#contact">Get in touch <ArrowRight /></a></Button></div><div className="location"><MapPin /> Catbalogan City, Samar, Philippines</div></div>
+          <div className="page-width hero-content" style={{ padding: '100px 0', textAlign: 'left' }}>
+            <div className="eyebrow">A thoughtful approach to bookkeeping</div>
+            <h1>Cyrus John Balasbas<span>.<br />Care in every number.</span></h1>
+            <p className="hero-description">An accounting professional with hands-on experience in transaction recording, reconciliation, and accounts receivable. Bringing clarity and care to everyday financial records.</p>
+            <div className="hero-actions" style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+              <Button variant="portfolio" size="lg" asChild><a href="#portfolio">Explore my portfolio <ArrowUpRight /></a></Button>
+              <Button variant="outline" size="lg" asChild><a href="#contact">Get in touch <ArrowRight /></a></Button>
+            </div>
+            <div className="location" style={{ marginTop: '25px', display: 'flex', items: 'center', gap: '5px' }}><MapPin /> Catbalogan City, Samar, Philippines</div>
+          </div>
         </section>
+        
         <div className="service-strip"><div className="page-width service-inner">{[[BookOpen, 'Transaction recording'], [Landmark, 'Bank reconciliation'], [Users, 'Accounts receivable'], [FileText, 'Financial reporting']].map(([Icon, label]) => { const ServiceIcon = Icon as typeof BookOpen; return <div key={String(label)} className="service-item"><ServiceIcon />{String(label)}</div>; })}</div></div>
-        <section id="about" className="section"><div className="page-width about-grid"><div className="about-visual"><img className="about-photo" src={reports} alt="Illustrative financial reports and calculator on an organized desk" width={1280} height={896} loading="lazy" /><div className="photo-caption">Illustrative workspace photography</div></div><div><div className="eyebrow">About me</div><h2 className="section-heading">Grounded in finance.<br />Focused on the details.</h2><p className="section-copy">I’m Cyrus John Balasbas, a Business Administration graduate majoring in Financial Management, based in Catbalogan City, Samar, Philippines.</p><p className="section-copy">My work at DES Marketing, Inc. has given me practical experience with daily accounting records, bank-related transactions, and customer accounts. I value clear records, careful review, and a consistent approach to each task.</p><p className="section-copy">Alongside my professional experience, I’m developing my QuickBooks Online skills through practice and continuing to build my bookkeeping knowledge.</p><div className="education"><GraduationCap /><div><h3>Business Administration · Financial Management</h3><p>Samar Colleges, Inc.<br />Graduated in 2019</p></div></div></div></div></section>
+        
+        <section id="about" className="section">
+          <div className="page-width">
+            <div className="eyebrow">About me</div>
+            <h2 className="section-heading">Grounded in finance.<br />Focused on the details.</h2>
+            <p className="section-copy">I’m Cyrus John Balasbas, a Business Administration graduate majoring in Financial Management, based in Catbalogan City, Samar, Philippines.</p>
+            <p className="section-copy">My work at DES Marketing, Inc. has given me practical experience with daily accounting records, bank-related transactions, and customer accounts. I value clear records, careful review, and a consistent approach to each task.</p>
+            <p className="section-copy">Alongside my professional experience, I’m developing my QuickBooks Online skills through practice and continuing to build my bookkeeping knowledge.</p>
+            <div className="education" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}><GraduationCap /><div><h3>Business Administration · Financial Management</h3><p>Samar Colleges, Inc.<br />Graduated in 2019</p></div></div>
+          </div>
+        </section>
         
         <section id="experience" className="section mint-section">
           <div className="page-width">
@@ -78,21 +94,21 @@ function Index() {
                   <div className="experience-meta">DES Marketing, Inc.</div>
                   <div className="experience-date">Feb 12, 2023 — Present</div>
                 </div>
-                <ul className="experience-list">
+                <ul className="experience-list" style={{ listStyleType: 'disc', paddingLeft: '20px', marginTop: '10px' }}>
                   <li>Record day-to-day cash and non-cash transactions.</li>
                   <li>Handle bank-related transactions and update customer account payments.</li>
                   <li>Reconcile bank deposits and income against accounting records.</li>
                   <li>Prepare requested reports using the company accounting system.</li>
                 </ul>
               </article>
-              <article className="experience-item">
+              <article className="experience-item" style={{ marginTop: '20px' }}>
                 <span className="timeline-dot" />
                 <div>
                   <h3>Standby Account Specialist</h3>
                   <div className="experience-meta">DES Marketing, Inc.</div>
                   <div className="experience-date">Feb 19, 2020 — Feb 11, 2023</div>
                 </div>
-                <ul className="experience-list">
+                <ul className="experience-list" style={{ listStyleType: 'disc', paddingLeft: '20px', marginTop: '10px' }}>
                   <li>Monitor account balances and maintain accurate physical records.</li>
                   <li>Handle accounts receivable inquiries and follow up on customer accounts.</li>
                 </ul>
@@ -138,4 +154,3 @@ function Index() {
             <div className="mt-8 flex flex-wrap gap-2 justify-start border-b pb-4">
               {portfolioTabs.map((tab, idx) => (
                 <button
-                  key={idx}
