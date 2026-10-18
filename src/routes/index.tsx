@@ -124,3 +124,31 @@ function Index() {
             
             <div className="mt-12 text-center p-8 border border-dashed rounded-xl bg-background/50">
               <p className="text-sm text-muted-foreground font-medium">
+                Practice samples will be posted here soon.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="contact">
+          <div className="page-width contact-content">
+            <div className="eyebrow">Contact</div>
+            <h2 className="section-heading">Let’s work together.</h2>
+            <p className="section-copy">Reach out by email or connect with me on my professional profiles.</p>
+            <div className="contact-links">
+              <Button variant="contact" size="lg" asChild><a href={`mailto:${email}`}><Mail /> {email}</a></Button>
+              <Button variant="contact" size="lg" asChild><a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn</a></Button>
+              <Button variant="contact" size="lg" asChild><a href={profiles.onlineJobs} target="_blank" rel="noopener noreferrer"><Monitor /> OnlineJobs.ph</a></Button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Dialog open={project !== null} onOpenChange={open => !open && setSelected(null)}>
+        <DialogContent className="sample-dialog">
+          {project && <DialogHeader><DialogTitle>{project.title}</DialogTitle><DialogDescription>Practice sample · {project.focus}</DialogDescription></DialogHeader>}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
