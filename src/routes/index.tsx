@@ -3,16 +3,8 @@ import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, BookOpen, Building2, Calculator, CheckCheck, FileSpreadsheet, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, ShieldCheck, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import bankStatement from '@/assets/bank-statement.jpg';
 import desk from '@/assets/bookkeeping-desk.jpg';
-import incomeExpenses from '@/assets/income-expenses.jpg';
-import inventoryStock from '@/assets/inventory-stock.jpg';
-import laptop from '@/assets/spreadsheet-work.jpg';
 import reports from '@/assets/financial-reports.jpg';
-import salesReceipts from '@/assets/sales-receipts.jpg';
-import purchaseOrder from '@/assets/purchase-order.jpg';
-import fixedAssets from '@/assets/fixed-assets.jpg';
-import chartOfAccounts from '@/assets/chart-of-accounts.jpg';
 import { email, profiles, projects } from '@/lib/portfolio';
 import { PracticeGallery } from '@/components/practice-gallery';
 
@@ -29,7 +21,14 @@ export const Route = createFileRoute('/')({
 });
 
 const navigation = [['About', 'about'], ['Experience', 'experience'], ['Skills', 'skills'], ['Portfolio', 'portfolio']];
-const images: Record<string, string> = { desk, reports, laptop, bank: bankStatement, inventory: inventoryStock, sales: salesReceipts, income: incomeExpenses, purchase: purchaseOrder, assets: fixedAssets, accounts: chartOfAccounts };
+
+// ANG MGA NASA PUBLIC FOLDER NA LAMANG ANG LALABAS DITO SA GALLERY
+const images: Record<string, string> = { 
+  bill101: '/portfolio/bills/Bill%20101.png',
+  bill102: '/portfolio/bills/bills%20102.png',
+  salesTransactions: '/portfolio/bills/sales%20transactions.png'
+};
+
 const skills = [
   { icon: BookOpen, title: 'Transaction recording', copy: 'Organized recording of day-to-day cash and non-cash transactions.' },
   { icon: Landmark, title: 'Bank reconciliation', copy: 'Matching bank deposits and income against accounting records.' },
@@ -123,54 +122,9 @@ function Index() {
         <section id="portfolio" className="section mint-section">
           <div className="page-width">
             <div className="section-intro">
-              <div className="eyebrow">Portfolio</div>
-              <h2 className="section-heading">Practice samples.<br />Built step by step.</h2>
-              <p className="section-copy">These are practice samples I prepared to build my bookkeeping skills — not real client projects.</p>
+              <div className="eyebrow">Portfolio Practice</div>
+              <h2 className="section-heading">Bookkeeping Practice Samples</h2>
+              <p className="section-copy">
+                Explore interactive bookkeeping samples, utility bills, and QuickBooks workflow screenshots.
+              </p>
             </div>
-            <div className="practice-note"><ShieldCheck /> Every sample uses my own practice records. No client data is shown.</div>
-            <div className="project-grid">
-              {projects.map((item, index) => (
-                <article className="project-card" key={item.title}>
-                  <div className="project-image"><img src={images[item.image]} alt={`Illustrative photo for ${item.title}`} loading="lazy" /><span className="project-label">Practice sample</span></div>
-                  <div className="project-body">
-                    <div className="eyebrow">{item.category}</div>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <Button variant="outline" onClick={() => setSelected(index)}>View practice sample <ArrowRight /></Button>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="contact">
-          <img className="contact-photo" src={laptop} alt="" loading="lazy" />
-          <div className="page-width contact-content">
-            <div className="eyebrow">Contact</div>
-            <h2 className="section-heading">Let’s work together.</h2>
-            <p className="section-copy">Reach out by email or connect with me on my professional profiles.</p>
-            <div className="contact-links">
-              <Button variant="contact" size="lg" asChild><a href={`mailto:${email}`}><Mail /> {email}</a></Button>
-              <Button variant="contact" size="lg" asChild><a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn</a></Button>
-              <Button variant="contact" size="lg" asChild><a href={profiles.onlineJobs} target="_blank" rel="noopener noreferrer"><Monitor /> OnlineJobs.ph</a></Button>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Dialog open={project !== null} onOpenChange={open => !open && setSelected(null)}>
-        <DialogContent className="sample-dialog max-h-[90vh] overflow-y-auto">
-          {project && <>
-            <DialogHeader>
-              <DialogTitle>{project.title}</DialogTitle>
-              <DialogDescription>Practice sample · {project.focus}</DialogDescription>
-            </DialogHeader>
-            <ol className="sample-steps">{project.steps.map((step, i) => <li className="sample-step" key={i}><CheckCheck /> {step}</li>)}</ol>
-            {project.screenshots && project.screenshots.length > 0 && <PracticeGallery entries={project.screenshots} />}
-          </>}
-        </DialogContent>
-      </Dialog>
-    </>
-  );
-}
