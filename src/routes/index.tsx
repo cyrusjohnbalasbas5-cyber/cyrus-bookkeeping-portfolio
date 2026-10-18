@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, Users, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, FileSpreadsheet, FileText, GraduationCap, Landmark, Linkedin, Mail, MapPin, Menu, Monitor, Users, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import desk from '@/assets/bookkeeping-desk.jpg';
 import reports from '@/assets/financial-reports.jpg';
@@ -43,7 +43,7 @@ const portfolioTabs = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(3); // Default sa Bills tab para makita mo agad ang gawa natin
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4">Skip to content</a>
@@ -62,6 +62,7 @@ function Index() {
         </section>
         <div className="service-strip"><div className="page-width service-inner">{[[BookOpen, 'Transaction recording'], [Landmark, 'Bank reconciliation'], [Users, 'Accounts receivable'], [FileText, 'Financial reporting']].map(([Icon, label]) => { const ServiceIcon = Icon as typeof BookOpen; return <div key={String(label)} className="service-item"><ServiceIcon />{String(label)}</div>; })}</div></div>
         <section id="about" className="section"><div className="page-width about-grid"><div className="about-visual"><img className="about-photo" src={reports} alt="Illustrative financial reports and calculator on an organized desk" width={1280} height={896} loading="lazy" /><div className="photo-caption">Illustrative workspace photography</div></div><div><div className="eyebrow">About me</div><h2 className="section-heading">Grounded in finance.<br />Focused on the details.</h2><p className="section-copy">I’m Cyrus John Balasbas, a Business Administration graduate majoring in Financial Management, based in Catbalogan City, Samar, Philippines.</p><p className="section-copy">My work at DES Marketing, Inc. has given me practical experience with daily accounting records, bank-related transactions, and customer accounts. I value clear records, careful review, and a consistent approach to each task.</p><p className="section-copy">Alongside my professional experience, I’m developing my QuickBooks Online skills through practice and continuing to build my bookkeeping knowledge.</p><div className="education"><GraduationCap /><div><h3>Business Administration · Financial Management</h3><p>Samar Colleges, Inc.<br />Graduated in 2019</p></div></div></div></div></section>
+        
         <section id="experience" className="section mint-section">
           <div className="page-width">
             <div className="section-intro">
@@ -128,41 +129,13 @@ function Index() {
             <div className="section-intro">
               <div className="eyebrow">Portfolio Practice</div>
               <h2 className="section-heading">Bookkeeping Practice Samples</h2>
+              <p className="section-copy">
+                Explore interactive bookkeeping samples, utility bills, and QuickBooks workflow screenshots.
+              </p>
             </div>
-            <div className="practice-tabs" role="tablist" aria-label="Practice sample categories">
-              {portfolioTabs.map((tab, index) => (
-                <button
-                  key={tab}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === index}
-                  className={`practice-tab${activeTab === index ? ' is-active' : ''}`}
-                  onClick={() => setActiveTab(index)}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-            <div className="practice-placeholder" role="tabpanel">
-              <p className="practice-tab-title">{portfolioTabs[activeTab]}</p>
-              <p>Practice samples and documents are being prepared. Check back soon!</p>
-            </div>
-          </div>
-        </section>
 
-        <section id="contact" className="contact">
-          <div className="page-width contact-content">
-            <div className="eyebrow">Contact</div>
-            <h2 className="section-heading">Let’s work together.</h2>
-            <p className="section-copy">Reach out by email or connect with me on my professional profiles.</p>
-            <div className="contact-links">
-              <Button variant="contact" size="lg" asChild><a href={`mailto:${email}`}><Mail /> {email}</a></Button>
-              <Button variant="contact" size="lg" asChild><a href={profiles.linkedIn} target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn</a></Button>
-              <Button variant="contact" size="lg" asChild><a href={profiles.onlineJobs} target="_blank" rel="noopener noreferrer"><Monitor /> OnlineJobs.ph</a></Button>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
-  );
-}
+            {/* TAB BUTTONS */}
+            <div className="mt-8 flex flex-wrap gap-2 justify-start border-b pb-4">
+              {portfolioTabs.map((tab, idx) => (
+                <button
+                  key={idx}
